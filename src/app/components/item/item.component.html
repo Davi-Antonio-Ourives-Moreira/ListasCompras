@@ -3,10 +3,12 @@
   type="checkbox"
   name="comprado"
   id="comprado"
-  [checked]="item.comprado">
+  [checked]="item.comprado"
+  (change)="atualizarCheckItem()"
+  >
 <p class="description">{{ item.nome }}</p>
 <div class="d-contents" *ngIf="!item.comprado">
-  <i class="bi bi-trash-fill delete-icon"></i>
+  <i class="bi bi-trash-fill delete-icon" (click)="deletarItem()"></i>
   <i class="bi bi-pencil-fill edit-icon" (click)="editarItem()"></i>
 </div>
 <small class="date">{{ item.data }}</small>

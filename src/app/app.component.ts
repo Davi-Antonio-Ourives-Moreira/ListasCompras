@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { InputComponent } from './components/input/input.component';
 import { Item } from './interface/item';
 import { ListaComprasServiceService } from './service/lista-compras-service.service';
@@ -12,7 +12,7 @@ import { ItemComponent } from './components/item/item.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit, DoCheck{
   title = 'ListasCompras';
 
   listasCompras!: Array<Item>;
@@ -27,7 +27,17 @@ export class AppComponent implements OnInit{
       this.listasCompras = this.service.getListaDeCompra()
   }
 
+  ngDoCheck(): void {
+    this.service.atualizarLocalStorange();
+  }
+
   editarItem(ev: Item){
     this.itemEditar = ev;
+  }
+
+  deletarItem(ev: any){
+    const index = this.listasCompras.findIndex((item) => item.id === ev);
+
+    this.listasCompras.splice(index, 1);
   }
 }

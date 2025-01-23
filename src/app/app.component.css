@@ -13,6 +13,10 @@
   background: white;
   padding: 1rem;
   width: 328px;
+
+  @media screen and (max-width: 345px) {
+    width: 100%;
+  }
 }
 
 .lista h4 {
