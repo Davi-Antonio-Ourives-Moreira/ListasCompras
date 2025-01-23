@@ -20,11 +20,11 @@
 }
 
 .lista h4 {
-  border-bottom: 1px solid blue;
   padding-bottom: 1rem;
-  border-style: none none dashed none;
   font-family: 'Mansalva', sans-serif;
   color: #4574E3;
+  border-bottom: 1px solid blue;
+  border-style: none none dashed none;
 }
 
 .content {

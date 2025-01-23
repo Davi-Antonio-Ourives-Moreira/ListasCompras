@@ -27,10 +27,6 @@ export class AppComponent implements OnInit, DoCheck{
       this.listasCompras = this.service.getListaDeCompra()
   }
 
-  ngDoCheck(): void {
-    this.service.atualizarLocalStorange();
-  }
-
   editarItem(ev: Item){
     this.itemEditar = ev;
   }
@@ -39,5 +35,9 @@ export class AppComponent implements OnInit, DoCheck{
     const index = this.listasCompras.findIndex((item) => item.id === ev);
 
     this.listasCompras.splice(index, 1);
+  }
+
+  ngDoCheck(): void {
+    this.service.atualizarLocalStorange();
   }
 }
